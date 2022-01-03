@@ -1,32 +1,56 @@
-import { StyleSheet } from 'react-native';
+import * as React from 'react'
+import { View, Image, Text, StyleSheet } from 'react-native'
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types';
-
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
-    </View>
-  );
+export default function TabOneScreen() {
+	return (
+		<View style={styles.container}>
+			<Image
+				source={{ uri: 'https://avatars.githubusercontent.com/u/44367062?v=4' }}
+				style={styles.image}
+			/>
+			<View style={styles.rightContainer}>
+				<View style={styles.details}>
+					<Text style={styles.name}>Raga Jai Santhosh</Text>
+					<Text style={styles.grayedText}>1:00 AM</Text>
+				</View>
+				<Text numberOfLines={1} style={styles.grayedText}>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla culpa
+					iste minima sit totam nesciunt praesentium provident perferendis in
+					sapiente! Nostrum ex, labore est delectus animi quidem maiores
+					repudiandae tenetur.
+				</Text>
+			</View>
+		</View>
+	)
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+	container: {
+		display: 'flex',
+		flexDirection: 'row',
+		padding: 10,
+	},
+	image: {
+		height: 50,
+		width: 50,
+		borderRadius: 50,
+		marginRight: 10,
+	},
+	rightContainer: {
+		flex: 1,
+		justifyContent: 'center',
+	},
+	details: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	name: {
+		fontWeight: 'bold',
+		fontSize: 18,
+		marginBottom: 3,
+	},
+	grayedText: {
+		color: 'grey',
+		fontWeight: '300',
+	},
+})
